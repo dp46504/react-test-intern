@@ -21,6 +21,7 @@ const students = [
     },
     ];
 
+    // Disabling all backgroun grays except provided id
 function disableAll(indexExcept){
     for(let i=0;i<students.length;i++){
         if(i===indexExcept) continue
@@ -28,47 +29,52 @@ function disableAll(indexExcept){
     }
 }
 
+// Document onload listener
 window.addEventListener('load',()=>{
-    students.forEach((studentInfo,index)=>{
-        let cardElement=document.createElement('div')
-        cardElement.className="card"
-        cardElement.id=index
 
+    // For each studentinfo
+    students.forEach((studentInfo,index)=>{
+
+        // Initializing elements
+        let cardElement=document.createElement('div')
         let nameElement=document.createElement('div')
         let lastnameElement=document.createElement('div')
         let quantityElement=document.createElement('div')
         let avgMark=document.createElement('div')
+
+        // Adding classes and id
+        cardElement.className="card"
+        cardElement.id=index
         
-        // const quantityValue=studentInfo.marks.reduce((acc=0, curr)=>{
-        //     if(curr===null)return acc
-        //     return acc+1
-        // })
+        // Calculating quantity of visited lectures
         const quantityValue=studentInfo.marks.filter(mark=> mark!==null).length
 
+        // Calculating average for marks
         const avgMarkValue=studentInfo.marks.reduce((acc, curr)=>{
             if(curr===null)return acc
             return acc+curr
         })/studentInfo.marks.length
 
+        // Condition to change border color
         if(avgMarkValue>5){
             cardElement.classList.add("greenBorder")
         }else{
             cardElement.classList.add("redBorder")
         }
 
+        // Adding content to elements
         nameElement.innerHTML=studentInfo.name
         lastnameElement.innerText=studentInfo.lastName
-        
         quantityElement.innerHTML=`Num: ${quantityValue}`
-        
-
         avgMark.innerText=`AVG: ${avgMarkValue}`
 
+        // Appending element to cardcontainer
         cardElement.appendChild(nameElement)
         cardElement.appendChild(lastnameElement)
         cardElement.appendChild(quantityElement)
         cardElement.appendChild(avgMark)
 
+        // ClickeHandler grabackground
         cardElement.addEventListener('click',()=>{
             disableAll(index)
             cardElement.classList.toggle("grayBackground")
@@ -76,6 +82,7 @@ window.addEventListener('load',()=>{
             
         })
 
+        // Appending card to container
         document.getElementById("cardContainer").appendChild(cardElement)
     })
 })
