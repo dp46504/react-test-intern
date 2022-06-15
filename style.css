@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    border:0.2rem solid black
 }
 
 .card{
