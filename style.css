@@ -1,0 +1,37 @@
+#cardContainer{
+    width:100%;
+    height:fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    height:fit-content;
+    padding:1rem;
+    width: 8rem;
+    font-size: 1.3rem;
+    margin:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card *{
+    margin:0.5rem;
+}
+
+
+
+.greenBorder{
+    border:0.2rem solid green;
+}
+.redBorder{
+    border:0.2rem solid red;
+}
+
+.grayBackground{
+    background-color:gray
+}
