@@ -39,10 +39,11 @@ window.addEventListener('load',()=>{
         let quantityElement=document.createElement('div')
         let avgMark=document.createElement('div')
         
-        const quantityValue=studentInfo.marks.reduce((acc=0, curr)=>{
-            if(curr===null)return acc
-            return acc+1
-        })
+        // const quantityValue=studentInfo.marks.reduce((acc=0, curr)=>{
+        //     if(curr===null)return acc
+        //     return acc+1
+        // })
+        const quantityValue=studentInfo.marks.filter(mark=> mark!==null).length
 
         const avgMarkValue=studentInfo.marks.reduce((acc, curr)=>{
             if(curr===null)return acc
