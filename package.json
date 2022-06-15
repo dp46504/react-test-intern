@@ -1,0 +1,20 @@
+{
+  "name": "react-test-intern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "browser-sync -s -w -f \"./*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dp46504/react-test-intern.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dp46504/react-test-intern/issues"
+  },
+  "homepage": "https://github.com/dp46504/react-test-intern#readme"
+}
