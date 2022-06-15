@@ -20,11 +20,19 @@ const students = [
     marks: [9, 8, 9, 7, 5],
     },
     ];
-window.addEventListener('load',()=>{
 
-    students.forEach(studentInfo=>{
+function disableAll(indexExcept){
+    for(let i=0;i<students.length;i++){
+        if(i===indexExcept) continue
+        document.getElementById(i).classList.remove("grayBackground")
+    }
+}
+
+window.addEventListener('load',()=>{
+    students.forEach((studentInfo,index)=>{
         let cardElement=document.createElement('div')
         cardElement.className="card"
+        cardElement.id=index
 
         let nameElement=document.createElement('div')
         let lastnameElement=document.createElement('div')
@@ -61,7 +69,10 @@ window.addEventListener('load',()=>{
         cardElement.appendChild(avgMark)
 
         cardElement.addEventListener('click',()=>{
+            disableAll(index)
             cardElement.classList.toggle("grayBackground")
+
+            
         })
 
         document.getElementById("cardContainer").appendChild(cardElement)
